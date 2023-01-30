@@ -4,11 +4,11 @@
   "description": "Backend for location data app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "build":"ng build",
-    "watch":"ng build --watch --configuration development",
-    "heroku-postbuild":"ng-build --prod",
-    "test":"ng test"
+    "start": "node index.js",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "heroku-postbuild": "ng-build --prod",
+    "test": "ng test"
   },
   "keywords": [
     "weather",
