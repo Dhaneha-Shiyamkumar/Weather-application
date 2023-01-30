@@ -1,0 +1,53 @@
+<!-- <div class="container"> -->
+
+<div class="row">
+    <div class="col-12">
+        <mat-toolbar color="primary">
+            Location info finder
+            <hr>
+            <button mat-mini-fab color="grey" (click)="openDialog()">
+                <mat-icon>bookmark</mat-icon>
+            </button>
+            <small> v1.4</small>
+        </mat-toolbar>
+
+        <mat-progress-bar *ngIf="!fadeState" mode="buffer"></mat-progress-bar>
+
+        <div class="container-fluid">
+            <mat-form-field>
+                <mat-label>Enter a location</mat-label>
+                <input #box matInput placeholder="Ex. Toronto" (keyup.enter)="fetchLocationByName(box.value)">
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="box.value.length == 0"
+                (click)="fetchLocationByName(box.value)">Search</button>
+
+            <div *ngIf="errorMessage">
+                <p> Invalid location. Please try again</p>
+                <p>{{errorMessage}}</p>
+            </div>
+
+            <div [@fadeTrigger]="getFadeState()">
+                <div class="row">
+                    <div class="col-12">
+                        <app-weather-data [weatherData]="weatherData" [timeData]="timeData"
+                            [userGeoTimezone]="userGeoTimezone"></app-weather-data>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-12">
+                        <app-weather-map [weatherData]="weatherData" [timeData]="timeData"
+                            (outputClickCoords)="fetchLocationByCoords($event)">
+                        </app-weather-map>
+                    </div>
+                </div>
+
+                <hr>
+                <app-weather-table [locationFreqData]="locationFreqData"> </app-weather-table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- </div> -->
