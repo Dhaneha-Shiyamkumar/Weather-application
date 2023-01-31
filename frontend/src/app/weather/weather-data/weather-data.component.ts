@@ -10,9 +10,9 @@ import { singleTimezone } from 'src/app/models/singleTimezone.model';
 export class WeatherDataComponent implements OnInit {
   @Input() weatherData: singleWeather;
   @Input() timeData: singleTimezone;
-  @Input() userGeoTimezone: number; // Default GMT timezone
+  @Input() userGeoTimezone: number; 
   showErrorMessage = false;
-  timerIntevalId; // Reset the timer when searching new location (used for updating the time every second)
+  timerIntevalId; 
   currentDate;
   constructor() { }
 
@@ -28,14 +28,14 @@ export class WeatherDataComponent implements OnInit {
 
   initUpdateTime() {
     clearInterval(this.timerIntevalId);
-    const reformatData = this.timeData.formatted.replace(/-/g, '/'); // Fix bug with mobile devices (Using Safari etc);
+    const reformatData = this.timeData.formatted.replace(/-/g, '/'); 
     this.currentDate = new Date(reformatData);
     this.updateTimeEverySec();
   }
 
-  // Setters ********************************
+  
   setTimes() {
-    // Create date obj of current time date, and compare to location timezone/sunrise/sunset times
+  
     const reformatDate = this.timeData.formatted.replace(/-/g, '/');
     this.timeData.date = new Date(reformatDate);
 
@@ -57,12 +57,12 @@ export class WeatherDataComponent implements OnInit {
 
   setWidgetColour = (isDay: boolean) =>
     isDay
-      ? 'linear-gradient(LightSkyBlue, LightBlue)'
-      : 'linear-gradient(MidnightBlue, RoyalBlue)';
+      ? 'linear-gradient(MidnightBlue, RoyalBlue)'
+      : 'linear-gradient(Black, RoyalBlue)';
 
   setCloudColour = (isDay: boolean) => (isDay ? 'white' : 'dodgerBlue');
 
-  // Helper funcs for HTML/Animation ********************************
+  
   updateTimeEverySec() {
     this.timerIntevalId = setInterval(() => {
       this.currentDate.setSeconds(this.currentDate.getSeconds() + 1);

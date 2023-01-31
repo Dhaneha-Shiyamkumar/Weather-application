@@ -11,7 +11,7 @@ describe('WeatherComponent', () => {
   let weatherService: WeatherService;
   let httpMock: HttpTestingController;
   let component: WeatherComponent;
-  let fixture: ComponentFixture<WeatherComponent>; // Test environment for component
+  let fixture: ComponentFixture<WeatherComponent>; 
   let de: DebugElement;
 
   let serviceStub: any;
@@ -66,8 +66,7 @@ describe('WeatherComponent', () => {
     TestBed.configureTestingModule({
       declarations: [WeatherComponent],
       imports: [HttpClientTestingModule],
-      providers: [{ provide: WeatherService, useValue: serviceStub }] // Tells service to use stub instead of live data
-    })
+      providers: [{ provide: WeatherService, useValue: serviceStub }] 
       .compileComponents();
   }));
 
@@ -76,18 +75,6 @@ describe('WeatherComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  // it('Should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
-
-  // it('API STUB Test', () => {
-  //   component.weatherDataObs.subscribe((data) => {
-  //     console.log('Stub: ', data);
-  //     expect(component).toBeDefined();
-  //     expect(data.name).toContain('Liverpool');
-  //   })
-  // });
 
 
 });

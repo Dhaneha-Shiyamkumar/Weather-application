@@ -2,13 +2,7 @@
 
 <div class="row">
     <div class="col-12">
-        <mat-toolbar color="primary">
-            Location info finder
-            <hr>
-            <button mat-mini-fab color="grey" (click)="openDialog()">
-                <mat-icon>bookmark</mat-icon>
-            </button>
-            <small> v1.4</small>
+        <mat-toolbar color="primary" bg-color="black">
         </mat-toolbar>
 
         <mat-progress-bar *ngIf="!fadeState" mode="buffer"></mat-progress-bar>
@@ -16,13 +10,13 @@
         <div class="container-fluid">
             <mat-form-field>
                 <mat-label>Enter a location</mat-label>
-                <input #box matInput placeholder="Ex. Toronto" (keyup.enter)="fetchLocationByName(box.value)">
+                <input #box matInput placeholder="Ex.Colombo" (keyup.enter)="fetchLocationByName(box.value)">
             </mat-form-field>
             <button mat-raised-button color="primary" [disabled]="box.value.length == 0"
                 (click)="fetchLocationByName(box.value)">Search</button>
 
             <div *ngIf="errorMessage">
-                <p> Invalid location. Please try again</p>
+        
                 <p>{{errorMessage}}</p>
             </div>
 

@@ -15,7 +15,7 @@
           animation-timing-function: linear;
   -webkit-animation-direction: normal;
           animation-direction: normal;
-  /* Must use filter as it is an svg image */
+  
 }
 
 .snowflake {
@@ -182,4 +182,3 @@ mat-form-field {
 input {
   color: blue;
 }
-/*# sourceMappingURL=weather-data.component.css.map */

@@ -76,11 +76,11 @@ describe('SearchWeatherComponent', () => {
       zoneStart: 1585443600
     };
 
-    TestBed.configureTestingModule({ // Setup environment specific for this enviroment 
+    TestBed.configureTestingModule({ 
       declarations: [WeatherDataComponent],
-      // providers: [{ provide: WeatherService, useValue: weatherStub }] // Tells service to use stub instead of live data / Used for observable data
+     
     })
-      .compileComponents(); // Compiles the data within the component
+      .compileComponents(); 
   }));
 
   beforeEach(() => {
@@ -92,12 +92,10 @@ describe('SearchWeatherComponent', () => {
     fixture.detectChanges();
   });
 
-  /* Unit testing ...
-  I am aware each single test should be in a seperate funciton/method, but for reducing code size,
-  I have grouped them together */
+
 
   it('should contain "Humidty"', () => {
-    const bannerElement: HTMLElement = fixture.nativeElement; // Any HTML element
+    const bannerElement: HTMLElement = fixture.nativeElement; 
     expect(bannerElement.textContent).toContain('Humidty');
   });
 
@@ -135,28 +133,20 @@ describe('SearchWeatherComponent', () => {
 
   it('Should be day time', () => {
 
-    // component.weatherData = weatherStub;
-    // (Weather data contains sun-set/rise due to API)
-    // sunrise: 1589861092 * 1000ms, = Tue May 19 2020 05:04:52 GMT+0100 (British Summer Time)
-    // sunset: 158991910 * 1000ms, = Tue May 19 2020 21:11:40 GMT+0100 (British Summer Time)
-
-    // formatted: '2020-05-19 13:28:00',
-    // component.timeData = timeStub;
 
     component.userGeoTimezone = 3600;
 
     expect(component.setTimes()).toBeTruthy();
 
-    component.timeData.formatted = '2020-05-19 21:10:40'; // Still day time
+    component.timeData.formatted = '2020-05-19 21:10:40'; 
+
+    component.timeData.formatted = '2020-05-19 21:11:40'; 
     expect(component.setTimes()).toBeTruthy();
 
-    component.timeData.formatted = '2020-05-19 21:11:40'; // Overlap, still day time
-    expect(component.setTimes()).toBeTruthy();
-
-    component.timeData.formatted = '2020-05-19 21:12:40'; // Now night time
+    component.timeData.formatted = '2020-05-19 21:12:40'; 
     expect(component.setTimes()).toBeFalsy();
 
-    component.timeData.formatted = '2020-05-19 05:04:51'; // Still night, min before sunrise
+    component.timeData.formatted = '2020-05-19 05:04:51'; 
     expect(component.setTimes()).toBeFalsy();
 
     component.timeData.formatted = '2020-05-19 05:04:52';
