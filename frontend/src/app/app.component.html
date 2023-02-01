@@ -3,5 +3,9 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
 <div class="mat-app-background basic-container">
   <app-weather>Weather..</app-weather>
+
+  <div class="row justify-content-center">
+  <h5>Send Us a Message FeedBack</h5>&nbsp;<input type="text" name="text"  [(ngModel)]="message"(change)="sendToServer($event)">
+
 </div>
 <span class="version-info"></span>
