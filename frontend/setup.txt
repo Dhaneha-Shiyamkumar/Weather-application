@@ -1,0 +1,13 @@
+
+#In order to start the frontend application follow the commands:
+
+cd frontend | npm install | npm start
+
+
+#In order to start the backend follow the commands:
+
+cd backend | node init | npm install express |
+npm install nodemon | npm install mongoose | 
+npm install body-parser | npm install cors |
+npm install dotenv | npm install morgan | npm i node-fetch | 
+npm start
