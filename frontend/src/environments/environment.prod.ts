@@ -4,5 +4,5 @@ export const environment = {
   TIME_API_KEY: 'EV1D5XZXADEX',
   GOOGLE_API_KEY: 'AIzaSyACBPmiVul-ihtnQBCz0u05uamNFdkfCNA',
   API_URL:'http://localhost:3000/'
-  //'https://weather-app-backend2002.herokuapp.com/'
+
 };
