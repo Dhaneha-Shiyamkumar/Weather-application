@@ -16,10 +16,10 @@ jobs:
           name: Check install
       - checkout
       - restore_cache:
-          key: WeatherApp-{{ master }}-{{ checksum "package-lock.json" }}
+          key: Weather-App-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-          key: Weather-App-{{ master }}-{{ checksum "package-lock.json" }}
+          key: Weather-App-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
       
