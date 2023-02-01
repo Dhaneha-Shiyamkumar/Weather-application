@@ -13,6 +13,7 @@ import { WeatherMapComponent } from './weather/weather-map/weather-map.component
 import { WeatherTableComponent } from './weather/weather-table/weather-table/weather-table.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InfoDialogComponent } from './weather/info-dialog/info-dialog.component';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { InfoDialogComponent } from './weather/info-dialog/info-dialog.component
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
+    FormsModule,
     AgmCoreModule.forRoot({
       apiKey: environment.GOOGLE_API_KEY
     }),
